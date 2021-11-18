@@ -7,12 +7,12 @@ jobs:
   build_our_website:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v2
-    - run: cp index.html index.php
-    - run: tar -czvf nasapicoftheday.build.tar.gz *
-    - uses: docker://antonyurchenko/git-release:latest
-    env:
-      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      CHANGELOG_FILE: "none"
-    with:
-      args: nasapicoftheday.build.tar.gz
+      - uses: actions/checkout@v2
+      - run: cp index.html index.php
+      - run: tar -czvf nasapicoftheday.build.tar.gz *
+      - uses: docker://antonyurchenko/git-release:latest
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          CHANGELOG_FILE: "none"
+        with:
+          args: nasapicoftheday.build.tar.gz
